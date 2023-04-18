@@ -1,5 +1,3 @@
-vim.cmd(":colorscheme tempus_day")
-
 local set = vim.opt
 
 set.smartindent=true
@@ -46,6 +44,9 @@ require('packer').startup(function(use)
  -- semantic highlight clangd
   use 'adam-wolski/nvim-lsp-clangd-highlight'
 
+  -- color scheme
+  use 'jacoborus/tender.vim'
+
  -- repl
   --use {'hkupty/iron.nvim'}
 
@@ -56,12 +57,6 @@ require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
 
   use 'jpalardy/vim-slime'
-
-  -- quarto
-   use( { 'quarto-dev/quarto-nvim',
-  requires = {
-      'jmbuhr/otter.nvim',
-    }})
 
   if packer_bootstrap then
     require('packer').sync()
@@ -119,26 +114,6 @@ local lsp_flags = {
 require'lspconfig'.clangd.setup{
     on_attach = on_attach,
     flags = lsp_flags,
-}
-
-require'quarto'.setup{
-  debug = false,
-  closePreviewOnExit = true,
-  lspFeatures = {
-    enabled = true,
-    languages = { 'r', 'python', 'julia' },
-    diagnostics = {
-      enabled = true,
-      triggers = { "BufWrite" }
-    },
-    completion = {
-      enabled = false,
-    },
-  },
-  keymap = {
-    hover = 'K',
-    definition = 'gd'
-  }
 }
 
 require'nvim-treesitter.configs'.setup {
@@ -262,5 +237,6 @@ nmap('<leader><cr>', '<Plug>SlimeSendCell')
 -- vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
 -- vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
 
--- markdown preview
+vim.cmd(":colorscheme tender")
+--vim.cmd(":colorscheme tempus_day")
 
