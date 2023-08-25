@@ -239,4 +239,13 @@ nmap('<leader><cr>', '<Plug>SlimeSendCell')
 
 vim.cmd(":colorscheme tender")
 --vim.cmd(":colorscheme tempus_day")
+--
+vim.cmd("au BufReadCmd *.parx call zip#Browse(expand(\"<amatch>\"))")
+
+-- show whitespaces
+-- note that <CR> are never shown unless we open the file in 
+-- binary mode '-b'
+-- However, it can be seen from the fileformat (DOS)
+vim.cmd("set list lcs=tab:!·,trail:·")
+
 

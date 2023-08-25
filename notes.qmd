@@ -1,0 +1,24 @@
+# SET-2392
+
+Fbulk:
+      // get_RecombinationSRH and get_RecombinationTrapTrap only applies in steady-state while get_TrappingRate is used exclusively in transient
+
+left boundary:
+   thermionic:
+           get_RecombinationSRH(wks, layer, 0, cctype) + get_RecombinationTrapTrap(wks, layer, 0, cctype);
+           const double Rt = get_TrappingRate(wks, layer, 0, cctype);
+   uncontacted:
+           get_RecombinationSRH(wks, layer, 0, cctype) + get_RecombinationTrapTrap(wks, layer, 0, cctype);
+           const double Rt = get_TrappingRate(wks, layer, 0, cctype);
+
+right boundary:
+   thermionic:
+           get_RecombinationSRH(wks, layer, 0, cctype) + get_RecombinationTrapTrap(wks, layer, 0, cctype);
+           const double Rt = get_TrappingRate(wks, layer, 0, cctype);
+   uncontacted:
+           get_RecombinationSRH(wks, layer, 0, cctype) + get_RecombinationTrapTrap(wks, layer, 0, cctype);
+           const double Rt = get_TrappingRate(wks, layer, 0, cctype);
+
+
+ 
+

@@ -3,6 +3,7 @@
 - in order to install it on usb disk I had to mount the root fs (/dev/sda3) to a new dir `/mnt/install` and the boot to `/mnt/install/boot` and then `arch-chroot /mnt/install`
 - we use network manager
 - I had to do `pacman -S systemd systemd-sysvcompat` in order to get `/sbin/init`: see `bbs.archlinux.com/viwtopic?id=201938`
+- we're using pipewire. use pavucontrol for control
 
 # Arch Linux Installation
 
