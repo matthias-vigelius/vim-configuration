@@ -1,3 +1,21 @@
+# randos
+- using grub
+- using gdm
+- using network manager nmcli
+  * wireguard is configured with network manager as well
+- bluetooth keyboard was paired using bluetooth command line as in arch wiki
+- using yay
+- using gnome tweaks for caps lock
+- boost was compiled using gcc 11
+- using intel oneapi download in home dir
+# For i3:
+- install i3 with
+  sudo pacman -S i3 xorg-xbacklight dmenu i3status
+- sudo localectl --no-convert set-x11-keymap us "" "" caps:swapescape
+  (this is from https://unix.stackexchange.com/questions/616290/how-to-swap-escape-and-caps-lock-for-tty-and-x11)
+
+# In gnome:
+# - using alacritty with inconsolata font (16p) and onehalflight
 # Some tweaks I made
 
 - in order to install it on usb disk I had to mount the root fs (/dev/sda3) to a new dir `/mnt/install` and the boot to `/mnt/install/boot` and then `arch-chroot /mnt/install`
