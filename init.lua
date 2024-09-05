@@ -58,6 +58,18 @@ require('packer').startup(function(use)
 
   use 'jpalardy/vim-slime'
 
+  use {
+  "luckasRanarison/nvim-devdocs",
+  requires = {
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  },
+  config = function()
+    require("nvim-devdocs").setup()
+  end
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end
@@ -116,9 +128,14 @@ require'lspconfig'.clangd.setup{
     flags = lsp_flags,
 }
 
+require'nvim-devdocs'.setup {
+   previewer_cmd = "/usr/bin/glow",
+   cmd_args = { "-s", "dark", "-w", "80" }, -- example using glow: { "-s", "dark", "-w", "80" }
+}
+
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
-  ensure_installed = { "markdown" },
+  ensure_installed = { "markdown", "html" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
