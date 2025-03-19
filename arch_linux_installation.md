@@ -335,3 +335,7 @@ and reboot
 ```shell
 reboot
 ```
+
+# some tips
+ls -1r ../../../examples_newParallelization/*par | xargs -n 1 sh -c './setfos-kernel $0 || exit 255' | tee log
+
